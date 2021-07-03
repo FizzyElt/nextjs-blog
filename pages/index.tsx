@@ -3,8 +3,8 @@ import path from 'path';
 import matter from 'gray-matter';
 import Head from 'next/head';
 import Image from 'next/image';
-import { Text, VStack, Box } from '@chakra-ui/react';
-
+import { Text, VStack, Box, useColorMode, Button } from '@chakra-ui/react';
+import PageContainer from '../container/PageContainer';
 import { GetStaticPaths, GetStaticProps } from 'next';
 
 type HomeProps = {
@@ -19,7 +19,15 @@ type HomeProps = {
 };
 
 export default function Home({ posts }: HomeProps) {
-  return <></>;
+  const { colorMode, toggleColorMode } = useColorMode();
+  return (
+    <PageContainer>
+      <Box>
+        <Text fontSize='md'>hello</Text>
+        <Button onClick={toggleColorMode}>toggle</Button>
+      </Box>
+    </PageContainer>
+  );
 }
 
 export const getStaticProps: GetStaticProps = async () => {

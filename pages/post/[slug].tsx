@@ -4,7 +4,7 @@ import matter from 'gray-matter';
 import ReactMarkdown from 'react-markdown';
 import { Box, Text, Heading, Button } from '@chakra-ui/react';
 import ChakraUIRenderer from '../../components/ChakraUIRenderer';
-
+import PageContainer from '../../container/PageContainer';
 import { GetStaticPaths, GetStaticProps } from 'next';
 
 type PostPageProps = {
@@ -23,15 +23,19 @@ export default function PostPage({
   content,
 }: PostPageProps) {
   return (
-    <Box>
-      <Text color='gray.500'>{slug}</Text>
-      <Heading size='lg'>{frontMatter.date}</Heading>
-      <Text>{frontMatter.title}</Text>
-      <Button>hello</Button>
+    <PageContainer>
       <Box>
-        <ReactMarkdown components={ChakraUIRenderer()}>{content}</ReactMarkdown>
+        <Text color='gray.500'>{slug}</Text>
+        <Heading size='lg'>{frontMatter.date}</Heading>
+        <Text>{frontMatter.title}</Text>
+        <Button>hello</Button>
+        <Box>
+          <ReactMarkdown components={ChakraUIRenderer()}>
+            {content}
+          </ReactMarkdown>
+        </Box>
       </Box>
-    </Box>
+    </PageContainer>
   );
 }
 

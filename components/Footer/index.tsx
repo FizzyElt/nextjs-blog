@@ -12,9 +12,9 @@ export default function Footer() {
           <Icon as={MdEmail} />
           <Text>fizzyelt8786@gmail.com</Text>
         </HStack>
-        <HStack>
-          <Icon as={FaGithub} />
-          <Icon as={FaTwitter} />
+        <HStack spacing={4}>
+          <Icon as={FaGithub} boxSize='1.5rem' />
+          <Icon as={FaTwitter} boxSize='1.5rem' />
         </HStack>
       </Flex>
     </ContentContainer>

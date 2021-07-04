@@ -1,8 +1,8 @@
 ---
 title: test markdown
-date: 2021/07/01
+date: 2021/07/04
 excerpt: this is sample
-tags: aaaa
+tags: asdasd
 ---
 
 # this is test markdown

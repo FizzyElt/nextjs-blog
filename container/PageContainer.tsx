@@ -21,10 +21,9 @@ export default function PageContainer({
       minH='100vh'
       align='stretch'
       justifyContent='space-between'
-      spacing={10}
     >
       {hideHeader ? null : <Header />}
-      <Box flex='1'>
+      <Box flex='1' my={10}>
         <ContentContainer>{children}</ContentContainer>
       </Box>
       {hideFooter ? null : <Footer />}

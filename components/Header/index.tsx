@@ -6,7 +6,6 @@ import {
   HStack,
   Avatar,
   Link,
-  Icon,
   useColorMode,
 } from '@chakra-ui/react';
 
@@ -14,7 +13,7 @@ import NextLink from 'next/link';
 
 import ContentContainer from '../../container/Container';
 
-import { FaSun, FaMoon, FaGithub } from 'react-icons/fa';
+import { FaSun, FaMoon } from 'react-icons/fa';
 
 import custom from '../../customFile';
 

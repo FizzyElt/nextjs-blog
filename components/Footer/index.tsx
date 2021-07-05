@@ -3,7 +3,6 @@ import { Flex, Text, Icon, HStack, Link } from '@chakra-ui/react';
 import ContentContainer from '../../container/Container';
 
 import { MdEmail } from 'react-icons/md';
-import { FaGithub, FaTwitter } from 'react-icons/fa';
 import custom from '../../customFile';
 
 export default function Footer() {

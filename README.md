@@ -1,4 +1,10 @@
+## next blog
+- Nextjs
+- Chakra UI
 
+### 填寫個人資訊請到 customFile 資料夾內有說明
+### 文章存放位置在 blogs 資料夾
+### 每篇文章都要有 title, date(yyyy/MM/dd), excerpt, tags(xxx,xxx,xxx)
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 

@@ -12,8 +12,6 @@ import {
   TagLeftIcon,
 } from '@chakra-ui/react';
 
-import { SiReact, SiJavascript, SiTypescript, SiRust } from 'react-icons/si';
-
 import PageContainer from '../container/PageContainer';
 import PostItem from '../components/PostItem';
 import { GetStaticProps } from 'next';
@@ -46,7 +44,7 @@ export default function Home({ posts }: HomeProps) {
         <HStack spacing={4}>
           {mainTags.map(({ name, icon, colorScheme }) => (
             <Tag key={name} size='lg' colorScheme={colorScheme}>
-              <TagLeftIcon boxSize='1rem' as={icon} />
+              {icon && <TagLeftIcon boxSize='1rem' as={icon} />}
               <TagLabel>{name}</TagLabel>
             </Tag>
           ))}

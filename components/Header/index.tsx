@@ -16,29 +16,26 @@ import ContentContainer from '../../container/Container';
 
 import { FaSun, FaMoon, FaGithub } from 'react-icons/fa';
 
+import custom from '../../customFile';
+
 export default function Header() {
   const { colorMode, toggleColorMode } = useColorMode();
+
+  const { name, avatarUrl } = custom;
+
   return (
     <ContentContainer>
       <Flex px={2} py={4} justify='space-between' align='center' w='full'>
         <Link as={NextLink} href='/'>
           <HStack align='center' spacing={4}>
-            <Avatar
-              src='https://avatars.githubusercontent.com/u/43887006?s=400&u=ebe51a3efd7126ad21461dd8e71ef7dd13185cb1&v=4'
-              size={'sm'}
-            />
+            {avatarUrl !== '' && <Avatar src={avatarUrl} size={'sm'} />}
             <Heading size='md' letterSpacing='wider' cursor='pointer'>
-              FizzyElt
+              {name}
             </Heading>
           </HStack>
         </Link>
 
         <HStack spacing={4}>
-          <Icon
-            as={FaGithub}
-            boxSize={{ base: '1.5rem', md: '2rem' }}
-            cursor='pointer'
-          />
           <IconButton
             onClick={toggleColorMode}
             aria-label='toggle mode'

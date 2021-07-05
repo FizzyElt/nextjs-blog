@@ -1,4 +1,7 @@
 import * as React from 'react';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { gruvboxDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import {
   Text,
   Code,
@@ -52,9 +55,7 @@ export const defaults: Defaults = {
       </Code>
     );
   },
-  code: function code(props) {
-    const { inline, children, className } = props;
-
+  code: function code({ node, inline, className, children }) {
     if (inline) {
       return <Code p={2}>{children}</Code>;
     }
@@ -76,7 +77,7 @@ export const defaults: Defaults = {
     return <Text as='del'>{children}</Text>;
   },
   hr: function hr(props) {
-    return <Divider />;
+    return <Divider my={4} />;
   },
   a: Link,
   img: Image,

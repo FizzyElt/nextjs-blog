@@ -19,6 +19,8 @@ import PostItem from '../components/PostItem';
 import { GetStaticProps } from 'next';
 import { differenceInDays, parse } from 'date-fns';
 
+import custom from '../customFile';
+
 type HomeProps = {
   posts: {
     slug: string;
@@ -32,36 +34,22 @@ type HomeProps = {
 };
 
 export default function Home({ posts }: HomeProps) {
+  const { name, introduction, avatarUrl, mainTags } = custom;
   return (
     <PageContainer>
       <VStack align='center' spacing={6}>
         <VStack>
-          <Avatar
-            src='https://avatars.githubusercontent.com/u/43887006?s=400&u=ebe51a3efd7126ad21461dd8e71ef7dd13185cb1&v=4'
-            size='xl'
-          />
-          <Heading>FizzyElt</Heading>
+          {avatarUrl !== '' && <Avatar src={avatarUrl} size='xl' />}
+          <Heading>{name}</Heading>
         </VStack>
-        <Text textAlign='center'>
-          嗨，我是不務正業的前端工程師，這裡是我紀錄想法跟思維的地方，這裡不會教你技術，而是教你怎麼思考，希望能激發您的創意及想法。
-        </Text>
+        <Text textAlign='center'>{introduction}</Text>
         <HStack spacing={4}>
-          <Tag size='lg' colorScheme='yellow'>
-            <TagLeftIcon boxSize='1rem' as={SiJavascript} />
-            <TagLabel>Javascript</TagLabel>
-          </Tag>
-          <Tag size='lg' colorScheme='linkedin'>
-            <TagLeftIcon boxSize='1rem' as={SiTypescript} />
-            <TagLabel>Typescript</TagLabel>
-          </Tag>
-          <Tag size='lg' colorScheme='orange'>
-            <TagLeftIcon boxSize='1rem' as={SiRust} />
-            <TagLabel>Rust</TagLabel>
-          </Tag>
-          <Tag size='lg' colorScheme='twitter'>
-            <TagLeftIcon boxSize='1rem' as={SiReact} />
-            <TagLabel>React</TagLabel>
-          </Tag>
+          {mainTags.map(({ name, icon, colorScheme }) => (
+            <Tag key={name} size='lg' colorScheme={colorScheme}>
+              <TagLeftIcon boxSize='1rem' as={icon} />
+              <TagLabel>{name}</TagLabel>
+            </Tag>
+          ))}
         </HStack>
       </VStack>
 

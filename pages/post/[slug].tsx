@@ -2,7 +2,15 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import ReactMarkdown from 'react-markdown';
-import { Box, Text, Heading, Button } from '@chakra-ui/react';
+import {
+  Box,
+  Text,
+  Heading,
+  Button,
+  VStack,
+  HStack,
+  Tag,
+} from '@chakra-ui/react';
 import ChakraUIRenderer from '../../components/ChakraUIRenderer';
 import PageContainer from '../../container/PageContainer';
 import { GetStaticPaths, GetStaticProps } from 'next';
@@ -13,6 +21,7 @@ type PostPageProps = {
     title: string;
     date: string;
     excerpt: string;
+    tags: string;
   };
   content: string;
 };
@@ -22,19 +31,24 @@ export default function PostPage({
   frontMatter,
   content,
 }: PostPageProps) {
+  const tagList = frontMatter.tags.split(',');
   return (
     <PageContainer>
-      <Box>
-        <Text color='gray.500'>{slug}</Text>
-        <Heading size='lg'>{frontMatter.date}</Heading>
-        <Text>{frontMatter.title}</Text>
-        <Button>hello</Button>
-        <Box>
-          <ReactMarkdown components={ChakraUIRenderer()}>
-            {content}
-          </ReactMarkdown>
-        </Box>
-      </Box>
+      <VStack align='stretch' spacing={10}>
+        {/** post info block */}
+        <VStack align='flex-start'>
+          <Heading>{frontMatter.title}</Heading>
+          <Text>{frontMatter.date}</Text>
+          <HStack>
+            {tagList.map((tag) => (
+              <Tag key={tag}>{tag}</Tag>
+            ))}
+          </HStack>
+        </VStack>
+
+        {/** markdown block */}
+        <ReactMarkdown components={ChakraUIRenderer()}>{content}</ReactMarkdown>
+      </VStack>
     </PageContainer>
   );
 }

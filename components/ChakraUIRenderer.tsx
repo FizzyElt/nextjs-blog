@@ -63,9 +63,10 @@ export const defaults: Defaults = {
           language={match[1]}
           style={coy}
           PreTag='div'
-          children={String(children).replace(/\n$/, '')}
           {...props}
-        />
+        >
+          {String(children).replace(/\n$/, '')}
+        </SyntaxHighlighter>
       );
     }
 

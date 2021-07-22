@@ -13,6 +13,7 @@ import {
 } from '@chakra-ui/react';
 import ChakraUIRenderer from '../../components/ChakraUIRenderer';
 import PageContainer from '../../container/PageContainer';
+import gfm from 'remark-gfm';
 import { GetStaticPaths, GetStaticProps } from 'next';
 
 type PostPageProps = {
@@ -47,7 +48,9 @@ export default function PostPage({
         </VStack>
 
         {/** markdown block */}
-        <ReactMarkdown components={ChakraUIRenderer()}>{content}</ReactMarkdown>
+        <ReactMarkdown remarkPlugins={[gfm]} components={ChakraUIRenderer()}>
+          {content}
+        </ReactMarkdown>
       </VStack>
     </PageContainer>
   );

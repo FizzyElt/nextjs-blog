@@ -20,6 +20,9 @@ import {
 import deepmerge from 'deepmerge';
 import { Components } from 'react-markdown/src/ast-to-react';
 
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import coy from 'react-syntax-highlighter/dist/cjs/styles/prism/material-dark';
+
 type GetCoreProps = {
   children?: React.ReactNode;
   'data-sourcepos'?: any;
@@ -52,9 +55,18 @@ export const defaults: Defaults = {
       </Code>
     );
   },
-  code: function code({ node, inline, className, children }) {
-    if (inline) {
-      return <Code p={2}>{children}</Code>;
+  code: function code({ node, inline, className, children, ...props }) {
+    const match = /language-(\w+)/.exec(className || '');
+    if (!inline && match) {
+      return (
+        <SyntaxHighlighter
+          language={match[1]}
+          style={coy}
+          PreTag='div'
+          children={String(children).replace(/\n$/, '')}
+          {...props}
+        />
+      );
     }
 
     return (

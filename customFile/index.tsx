@@ -1,5 +1,12 @@
 import React from 'react';
-import { SiGithub, SiJavascript } from 'react-icons/si';
+import {
+  SiGithub,
+  SiJavascript,
+  SiRust,
+  SiTypescript,
+  SiReact,
+  SiTwitter,
+} from 'react-icons/si';
 import { IconType } from 'react-icons';
 
 type Custom = {
@@ -14,26 +21,45 @@ type Custom = {
 };
 
 const custom: Custom = {
-  name: '', // 名字
-  avatarUrl: '', // 頭像連結
-  introduction: '', // 自我介紹
-  email: '', // email
+  name: 'FizzyElt',
+  avatarUrl:
+    'https://avatars.githubusercontent.com/u/43887006?s=400&u=ebe51a3efd7126ad21461dd8e71ef7dd13185cb1&v=4',
+  introduction:
+    '嗨，我是不務正業的前端工程師，這裡是我紀錄想法跟思維的地方，這裡不會教你技術，而是教你怎麼思考，希望能激發您的創意及想法。',
+  email: 'fizzyelt8786@gmail.com',
 
   mainTags: [
-    // 主要標籤 需要到react-icon找到指定icon import 進來 或者為空
-    // colorSchema 到這裡的 colorscheme 找 https://chakra-ui.com/docs/data-display/tag#props
     {
       name: 'Javascript',
       icon: SiJavascript,
       colorScheme: 'yellow',
+    },
+    {
+      name: 'Typescript',
+      icon: SiTypescript,
+      colorScheme: 'linkedin',
+    },
+    {
+      name: 'Rust',
+      icon: SiRust,
+      colorScheme: 'orange',
+    },
+    {
+      name: 'React',
+      icon: SiReact,
+      colorScheme: 'twitter',
     },
   ],
 
   // 相關連結 需要到react-icon找到指定icon import 進來
   links: [
     {
-      url: '',
+      url: 'https://github.com/FizzyElt',
       icon: SiGithub,
+    },
+    {
+      url: 'https://twitter.com/FizzyElt',
+      icon: SiTwitter,
     },
   ],
 };
